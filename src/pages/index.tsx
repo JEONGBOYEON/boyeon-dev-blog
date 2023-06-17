@@ -1,59 +1,30 @@
 import Container from "@/components/Container";
 
 export default function Home() {
+  const post = [1, 2, 3, 4, 5, 6];
   return (
     <>
       <Container>
-        <main className="container mx-auto px-4 py-8">
-          <article className="max-w-2xl mx-auto">
-            {/*<header>*/}
-            {/*  <h2 className="text-3xl font-bold mb-4">Hello, World!</h2>*/}
-            {/*  <p className="text-gray-500">*/}
-            {/*    Published on <time dateTime="2023-06-07">June 7, 2023</time> by*/}
-            {/*    John Doe*/}
-            {/*  </p>*/}
-            {/*</header>*/}
-
-            <a className="w-full my-7 hover:-translate-x-1.5">
-              <div className="font-medium text-xs text-gray-400">data</div>
-              <div className={`font-extrabold text-2xl mt-2`}>제목입니다.</div>
-              <div className={`font-medium text-gray-600 text-xl mt-1`}>
-                설명
+        <main className="w-3/4 h-auto mx-3 my-8 space-y-4">
+          {post.map((value) => (
+            <article key={value} className="h-40 border border-pink">
+              <div className={`mx-3 my-2 text-2xl font-extralight`}>
+                자바스크립트의 데이터 타입
               </div>
-            </a>
-
-            {/*<section className="mt-8">*/}
-            {/*  <p>*/}
-            {/*    Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
-            {/*    Vestibulum tristique risus id justo efficitur interdum. Morbi id*/}
-            {/*    felis id libero suscipit ullamcorper vel vel neque. Mauris sed*/}
-            {/*    felis in orci cursus lacinia non vel dui. Ut aliquam nunc vitae*/}
-            {/*    sapien dapibus, non ultricies urna tincidunt. Nulla facilisi.*/}
-            {/*    Donec fringilla metus ac suscipit hendrerit. Cras finibus*/}
-            {/*    ultrices cursus.*/}
-            {/*  </p>*/}
-            {/*  <p>*/}
-            {/*    Quisque in ligula ultrices, fermentum lectus non, aliquet massa.*/}
-            {/*    Aliquam erat volutpat. Mauris scelerisque velit ut quam*/}
-            {/*    ullamcorper, id pharetra ligula eleifend. Proin consectetur*/}
-            {/*    lectus sit amet ipsum consequat, sed faucibus sapien luctus.*/}
-            {/*    Nulla sit amet dui id lorem fringilla efficitur. Donec*/}
-            {/*    consectetur, enim et efficitur pellentesque, metus metus*/}
-            {/*    lobortis mi, in gravida lacus purus vitae justo. Suspendisse in*/}
-            {/*    ipsum consectetur, cursus enim ut, congue risus. Fusce sed urna*/}
-            {/*    magna. Aenean eu tortor sit amet quam luctus fermentum. Nam eu*/}
-            {/*    orci id metus auctor aliquam eu non sem.*/}
-            {/*  </p>*/}
-            {/*</section>*/}
-            {/*<aside className="mt-8 p-4 bg-gray-100">*/}
-            {/*  <h3 className="text-lg font-semibold mb-2">About the Author</h3>*/}
-            {/*  <p>*/}
-            {/*    John Doe is a web developer with a passion for writing blog*/}
-            {/*    posts about web development, programming, and technology.*/}
-            {/*  </p>*/}
-            {/*</aside>*/}
-          </article>
+              <div className={`mx-3 font-extralight text-xs overflow-hidden`}>
+                자바스크립트는 7개의 데이터 타입을 제공합니다.6개의 원시타입 +
+                객체타입아래는 자바스크립트의 원시 타입(Primitive Types)과 객체
+                타입(Object Types)을 표로 정리한 것입니다
+              </div>
+              <footer
+                className={`flex flex-row mx-3 my-1 space-x-3 text-xs font-extralight`}
+              >
+                <div>2023-06-14</div>
+              </footer>
+            </article>
+          ))}
         </main>
+        <nav className="w-1/4 mx-3 my-8 border border-pink "></nav>
       </Container>
 
       {/*<footer className="bg-gray-200 py-4">*/}

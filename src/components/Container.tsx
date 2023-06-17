@@ -18,7 +18,7 @@ export default function Container(props: any) {
         <meta property="og:site_name" content={meta.author} />
       </Head>
       <header
-        className={`w-full max-w-3xl flex flex-row justify-between items-center my-1`}
+        className={`w-full max-w-3xl flex flex-row justify-between items-center my-2 py-3 border-t border-b border-pink`}
       >
         <div className={`flex flex-row items-center`}>
           <Image
@@ -35,7 +35,7 @@ export default function Container(props: any) {
         </div>
         <Nav />
       </header>
-      <main className={`w-full max-w-3xl`}>{props.children}</main>
+      <main className={`flex w-full max-w-3xl`}>{props.children}</main>
     </div>
   );
 }

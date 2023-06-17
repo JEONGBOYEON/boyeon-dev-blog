@@ -3,9 +3,13 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className={`mr-2`}>
       {navlinks.map((nav) => (
-        <Link href={nav.link} key={nav.title} className={`mr-5 font-extralight`}>
+        <Link
+          href={nav.link}
+          key={nav.title}
+          className={`ml-5 font-extralight`}
+        >
           {nav.title}
         </Link>
       ))}
