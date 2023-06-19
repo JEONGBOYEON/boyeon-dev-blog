@@ -22,17 +22,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 👩‍💻Plan
+![image](https://github.com/boyeonJ/boyeon-dev-blog/assets/32887635/1a2800d9-feec-4bd0-a2d4-fc69d3f63d89)
+<br/>
+[.](https://velog.io/@boyeon_jeong/%EB%82%98%EC%9D%98-%EA%B3%BC%EC%A0%95-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8)
