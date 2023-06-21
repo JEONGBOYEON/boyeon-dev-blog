@@ -11,31 +11,43 @@ export default function Container(props: any) {
     // ...props.customMeta,
   };
   return (
-    <div className={`w-full flex flex-col items-center p-3`}>
+    <div className={`w-full flex flex-col items-center`}>
       <Head>
         <title>{meta.title}</title>
         <meta content={meta.description} name="description" />
         <meta property="og:site_name" content={meta.author} />
       </Head>
       <header
-        className={`w-full max-w-3xl flex flex-row justify-between items-center my-2 py-3 border-t border-b border-pink`}
+        className={`w-full flex flex-row justify-between items-center border-t border-b bg-pink`}
       >
-        <div className={`flex flex-row items-center`}>
-          <Image
-            src={`/logo.jpg`}
-            alt="로고"
-            width={40}
-            height={40}
-            objectFit={`cover`}
-            className={`rounded-full`}
-          />
-          <span className={`mx-2 font-extralight text-lg`}>
-            {metadata.title}
-          </span>
-        </div>
+              <div className={`flex flex-row items-center m-6`}>
+                  <Image
+                      src={`/logo.jpg`}
+                      alt="로고"
+                      width={40}
+                      height={40}
+                      objectFit={`cover`}
+                      className={`rounded-full`}
+                  />
+                  <span className={`mx-2 font-extralight text-lg`}>
+                    {metadata.title}
+                </span>
+              </div>
         <Nav />
       </header>
       <main className={`flex w-full max-w-3xl`}>{props.children}</main>
     </div>
   );
 }
+
+//접두사
+//w, max-x
+
+//접두사 뒤에 사이즈
+//3xl, https://tailwindcss.com/docs/max-width
+
+//felx
+//justify-content: Flex 컨테이너 내의 아이템들을 수평(가로) 방향으로 정렬
+
+//Background
+//bg- / slate-50 https://tailwindcss.com/docs/background-color
