@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Image from "next/image";
+import { allPosts } from "contentlayer/generated";
 
 const post = [
   {
@@ -52,6 +53,7 @@ const tag = [
 ];
 
 export default function Home() {
+  console.log(allPosts);
   return (
     <>
       <Container>
@@ -73,8 +75,8 @@ export default function Home() {
         </div>
         <div className="flex flex-row h-auto justify-between">
           <main className="w-4/6">
-            {post.map((value) => (
-              <article key={value.title} className="p-3 min-h-max ">
+            {post.map((value, index) => (
+              <article key={index} className="p-3 min-h-max ">
                 <div className={`text-2xl font-bold text-gray-600`}>
                   {value.title}
                 </div>
@@ -89,8 +91,8 @@ export default function Home() {
           </main>
           <nav className="w-1/6 mx-6">
             <ul>
-              {tag.map((value: any) => (
-                <li key={value.name}>
+              {tag.map((value: any, index: number) => (
+                <li key={index}>
                   <div className={`my-2 text-lg text-gray-500`}>
                     #{value.name}
                   </div>
