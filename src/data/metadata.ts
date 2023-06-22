@@ -1,5 +1,5 @@
 const metadata = {
-  title: "boyeon tech",
+  title: "Boyeon tech",
   description: "boyeon's tech blog",
   author: "BoyeonJeong",
 };
