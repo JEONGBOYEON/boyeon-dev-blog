@@ -53,3 +53,6 @@ export default function Container(props: any) {
 
 //Background
 //bg- / slate-50 https://tailwindcss.com/docs/background-color
+
+//위에 고정
+//sticky top-0 z-10
