@@ -17,7 +17,9 @@ export default function Container(props: any) {
         <meta content={meta.description} name="description" />
         <meta property="og:site_name" content={meta.author} />
       </Head>
-      <header className={`w-full bg-pink sticky top-0 z-10`}>
+      <header
+        className={`w-full sticky top-0 z-10 border-b-2 border-pink bg-white`}
+      >
         <div
           className={`w-full max-w-7xl flex flex-row justify-between items-center mx-auto`}
         >
@@ -27,7 +29,6 @@ export default function Container(props: any) {
               alt="로고"
               width={40}
               height={40}
-              objectFit={`cover`}
               className={`rounded-full`}
             />
             <span className={`mx-5 font-medium text-xl text-gray-600`}>
@@ -37,7 +38,9 @@ export default function Container(props: any) {
           <Nav />
         </div>
       </header>
-      <main className={`flex w-full max-w-3xl`}>{props.children}</main>
+      <main className={`flex flex-col w-full max-w-4xl items-center`}>
+        {props.children}
+      </main>
     </div>
   );
 }
