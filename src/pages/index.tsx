@@ -1,45 +1,7 @@
 import Container from "@/components/Container";
 import Image from "next/image";
 import { allPosts } from "contentlayer/generated";
-
-const post = [
-  {
-    title: "자바스크립트의 데이터 타입",
-    content:
-      "자바스크립트는 7개의 데이터 타입을 제공합니다.6개의 원시타입 객체타입아래는 자바스크립트의 원시 타입(Primitive Types)과 객체 타입(Object Types)을 표로 정리한 것입니다",
-    date: "2023-06-14",
-  },
-  {
-    title: "CSS BOX Model",
-    content:
-      "모든 HTML 요소는 Box 형태의 영역을 가지고 있다. 브라우저는 박스 모델의 크기(dimension)와 프로퍼티(색, 배경, 모양 등), 위치를 근거로 하여 렌더링을 실행한다.웹디자인은 콘텐츠를 담을 박스 모델을 정의하고 CSS 프로퍼티를 통해 스타일(배경, 폰트와모든 HTML 요소는 Box 형태의 영역을 가지고 있다. 브라우저는 박스 모델의 크기(dimension)와 프로퍼티(색, 배경, 모양 등), 위치를 근거로 하여 렌더링을 실행한다.웹디자인은 콘텐츠를 담을 박스 모델을 정의하고 CSS 프로퍼티를 통해 스타일(배경, 폰트와",
-    date: "2023-06-18",
-  },
-  {
-    title: "interable용 map, filter, reduce 만들기",
-    content:
-      "함수형 프로그래밍에서 map, filter, reduce는 매우 활용이 많이 된다.아래처럼 만든 함수은 array(프로토타입 기반, 뿌리를 가진 함수) 뿐만 아니라 interable protocal을 따르는 많은 값 또는 gen함수(문장)들을 사용할 수 있다. => 모",
-    date: "2023-06-25",
-  },
-  {
-    title: "자바스크립트의 데이터 타입",
-    content:
-      "자바스크립트는 7개의 데이터 타입을 제공합니다.6개의 원시타입 객체타입아래는 자바스크립트의 원시 타입(Primitive Types)과 객체 타입(Object Types)을 표로 정리한 것입니다",
-    date: "2023-06-14",
-  },
-  {
-    title: "CSS BOX Model",
-    content:
-      "모든 HTML 요소는 Box 형태의 영역을 가지고 있다. 브라우저는 박스 모델의 크기(dimension)와 프로퍼티(색, 배경, 모양 등), 위치를 근거로 하여 렌더링을 실행한다.웹디자인은 콘텐츠를 담을 박스 모델을 정의하고 CSS 프로퍼티를 통해 스타일(배경, 폰트와모든 HTML 요소는 Box 형태의 영역을 가지고 있다. 브라우저는 박스 모델의 크기(dimension)와 프로퍼티(색, 배경, 모양 등), 위치를 근거로 하여 렌더링을 실행한다.웹디자인은 콘텐츠를 담을 박스 모델을 정의하고 CSS 프로퍼티를 통해 스타일(배경, 폰트와",
-    date: "2023-06-18",
-  },
-  {
-    title: "interable용 map, filter, reduce 만들기",
-    content:
-      "함수형 프로그래밍에서 map, filter, reduce는 매우 활용이 많이 된다.아래처럼 만든 함수은 array(프로토타입 기반, 뿌리를 가진 함수) 뿐만 아니라 interable protocal을 따르는 많은 값 또는 gen함수(문장)들을 사용할 수 있다. => 모",
-    date: "2023-06-25",
-  },
-];
+import Post from "@/components/Post";
 
 const tag = [
   {
@@ -53,7 +15,6 @@ const tag = [
 ];
 
 export default function Home() {
-  console.log(allPosts);
   return (
     <>
       <Container>
@@ -75,18 +36,8 @@ export default function Home() {
         </div>
         <div className="flex flex-row h-auto justify-between">
           <main className="w-4/6">
-            {post.map((value, index) => (
-              <article key={index} className="p-3 min-h-max ">
-                <div className={`text-2xl font-bold text-gray-600`}>
-                  {value.title}
-                </div>
-                <div className={`my-5 font-extralight text-xs overflow-hidden`}>
-                  {value.content}
-                </div>
-                <footer className={`text-xs font-extralight`}>
-                  <div>{value.date}</div>
-                </footer>
-              </article>
+            {allPosts.map((value, index) => (
+              <Post key={index} postInfo={value} />
             ))}
           </main>
           <nav className="w-1/6 mx-6">
@@ -94,17 +45,13 @@ export default function Home() {
               {tag.map((value: any, index: number) => (
                 <li key={index}>
                   <div className={`my-2 text-lg text-gray-500`}>
-                    #{value.name}
+                    {value.name}
                   </div>
-                  <ul>
-                    {value.deep.map((deepValue: any) => (
-                      <li key={deepValue.name}>
-                        <div className={`mx-3 text-sm text-gray-400`}>
-                          #{deepValue.name}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  {value.deep.map((deepValue: any, index2: number) => (
+                    <span key={index2} className={`mx-3 text-sm text-gray-400`}>
+                      #{deepValue.name}
+                    </span>
+                  ))}
                 </li>
               ))}
             </ul>
