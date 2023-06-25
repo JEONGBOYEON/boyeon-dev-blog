@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
 import Image from "next/image";
-import { allPosts } from ".contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import Post from "@/components/Post";
 
 const tag = [
@@ -49,14 +49,14 @@ const SNBComponent = () => {
   );
 };
 
-export default function Home() {
+export default function Home({ posts }: any) {
   return (
     <>
       <Container>
         <HeaderComponent />
         <div className="flex flex-row h-auto justify-between">
           <main className="w-4/6">
-            {allPosts.map((value, index) => (
+            {posts?.map((value: any, index: number) => (
               <Post key={index} postInfo={value} />
             ))}
             <div className="flex flex-row m-16 space-x-8 justify-center font-extralight text-xl">
@@ -73,3 +73,12 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const posts = allPosts.slice(0, 2);
+  return {
+    props: {
+      posts,
+    },
+  };
+};
