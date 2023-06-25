@@ -2,6 +2,8 @@ import metadata from "../data/metadata";
 import Head from "next/head";
 import Image from "next/image";
 import Nav from "./Nav";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Container(props: any) {
   const meta = {
@@ -17,30 +19,11 @@ export default function Container(props: any) {
         <meta content={meta.description} name="description" />
         <meta property="og:site_name" content={meta.author} />
       </Head>
-      <header
-        className={`w-full sticky top-0 z-10 border-b-2 border-pink bg-white`}
-      >
-        <div
-          className={`w-full max-w-7xl flex flex-row justify-between items-center mx-auto`}
-        >
-          <div className={`flex flex-row items-center m-6`}>
-            <Image
-              src={`/logo.jpg`}
-              alt="로고"
-              width={40}
-              height={40}
-              className={`rounded-full`}
-            />
-            <span className={`mx-5 font-medium text-xl text-gray-600`}>
-              {metadata.title}
-            </span>
-          </div>
-          <Nav />
-        </div>
-      </header>
+      <Header />
       <main className={`flex flex-col w-full max-w-4xl items-center`}>
         {props.children}
       </main>
+      <Footer />
     </div>
   );
 }

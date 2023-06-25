@@ -6,27 +6,21 @@ const Post = (props: any) => {
   const MDXComponent = useMDXComponent(postInfo.body.code);
 
   return (
-    <article className="p-3 ">
+    <article className="p-3 border-b">
       <Link href={`/blog/${postInfo._raw.flattenedPath}`} passHref>
         <div
-          className={`my-3 text-2xl font-bold text-gray-600 hover:text-rose-300`}
+          className={`flex flex-row my-3 text-2xl font-bold text-gray-600 hover:text-rose-300`}
         >
           {postInfo.title}
         </div>
       </Link>
-      <div className={`flex flex-row font-extralight text-xs space-x-2`}>
-        <div className={`p-1.5 border-2 rounded-lg hover:border-rose-200`}>
-          {postInfo.category}
-        </div>
-        <div className={`p-1.5 border-2 rounded-lg hover:border-rose-300`}>
-          {postInfo.tag}
-        </div>
-      </div>
       <div className={`my-5 font-extralight text-xs max-h-12 overflow-hidden`}>
         <MDXComponent />
       </div>
-      <footer className={`text-xs font-extralight`}>
+      <footer className={`flex flex-row text-xs font-extralight`}>
         <div>{postInfo.date}</div>
+        <div className={`pl-2 ml-2 border-l-2`}>{postInfo.category}</div>
+        <div className={`pl-2 ml-2 border-l-2`}>#{postInfo.tag}</div>
       </footer>
     </article>
   );
