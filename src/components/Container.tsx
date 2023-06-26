@@ -1,7 +1,5 @@
 import metadata from "../data/metadata";
 import Head from "next/head";
-import Image from "next/image";
-import Nav from "./Nav";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 

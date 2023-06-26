@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Image from "next/image";
+//@ts-ignore
 import { allPosts } from "contentlayer/generated";
 import Post from "@/components/Post";
 
