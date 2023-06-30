@@ -1,11 +1,14 @@
 export default function Footer() {
   return (
-    <footer className="w-full h-28 mt-10 border-t-2 border-pink ">
-      {/*<div className="container mx-auto px-4">*/}
-      {/*  <p className="text-center text-gray-500">*/}
-      {/*    © 2023 My Blog. All rights reserved.*/}
-      {/*  </p>*/}
-      {/*</div>*/}
+    <footer
+      className="w-full h-28 mt-10 bg-gray-50 shadow-lg`}>
+      <div "
+    >
+      <div className="container mx-auto py-4">
+        <p className="text-center text-gray-400">
+          © 2023 boyeon-blog. All rights reserved.
+        </p>
+      </div>
     </footer>
   );
 }

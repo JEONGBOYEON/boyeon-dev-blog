@@ -18,7 +18,7 @@ export default function Container(props: any) {
         <meta property="og:site_name" content={meta.author} />
       </Head>
       <Header />
-      <main className={`flex flex-col w-full max-w-4xl items-center`}>
+      <main className={`flex flex-col w-full max-w-3xl items-center mt-20`}>
         {props.children}
       </main>
       <Footer />
