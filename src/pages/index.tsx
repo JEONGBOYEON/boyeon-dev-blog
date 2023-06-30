@@ -21,7 +21,7 @@ const HeaderComponent = () => {
 };
 
 const SNBComponent = () => {
-  const categories = new Set(allPosts.map((value: any) => value.category));
+  // const categories = new Set(allPosts.map((value: any) => value.category));
   // let navInfo = [];
   // for (let category of categories) {
   //   const tags = Array.from(
