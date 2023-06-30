@@ -32,15 +32,28 @@ const HeaderComponent = () => {
 };
 
 const SNBComponent = () => {
+  const categories = new Set(allPosts.map((value: any) => value.category));
+  let navInfo = [];
+  for (let category of categories) {
+    const tags = Array.from(
+      new Set(
+        allPosts
+          .filter((value: any) => value.category === category)
+          .map((value: any) => value.tag)
+      )
+    );
+    navInfo.push({ category, tags });
+  }
+
   return (
     <nav className="w-1/6 mx-6">
       <ul>
-        {tag.map((value: any, index: number) => (
+        {navInfo.map((value: any, index: number) => (
           <li key={index}>
-            <div className="my-2 text-lg text-gray-500">{value.name}</div>
-            {value.deep.map((deepValue: any, index2: number) => (
-              <span key={index2} className="mx-3 text-sm text-gray-400">
-                #{deepValue.name}
+            <div className="my-2 text-lg text-gray-500">{value.category}</div>
+            {value.tags.map((tag: any) => (
+              <span key={tag} className="mx-3 text-sm text-gray-400">
+                {tag}
               </span>
             ))}
           </li>
