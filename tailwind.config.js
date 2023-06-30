@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         main: "#6daed8",
         main_blod: "#3f87b6",
+        main_light: '#fdfeff',
         pink_back: "#fce7f3",
       },
     },
