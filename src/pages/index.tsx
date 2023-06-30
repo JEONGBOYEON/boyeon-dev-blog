@@ -4,26 +4,15 @@ import Image from "next/image";
 import { allPosts } from "contentlayer/generated";
 import Post from "@/components/Post";
 
-const tag = [
-  {
-    name: "Javascript",
-    deep: [{ name: "basic" }, { name: "최적화" }, { name: "데이터구조" }],
-  },
-  {
-    name: "React",
-    deep: [{ name: "상태 관리" }, { name: "구조" }, { name: "hooks" }],
-  },
-];
-
 const HeaderComponent = () => {
   return (
-    <div className="flex flex-row max-w-max my-28">
+    <div className="flex flex-row max-w-max my-16">
       <div className="mx-8">
         <Image src={`/profile.jpeg`} alt="profile" width={100} height={150} />
       </div>
       <div className="flex flex-col w-auto justify-center space-y-2">
-        <div className={`text-2xl font-bold text-gray-600`}>
-          안녕하세요 👋 Front 개발자 정보연입니다.
+        <div className={`text-2xl font-bold text-gray-800`}>
+          안녕하세요. Front 개발자 정보연입니다.
         </div>
         <div>기술을 습득하고 기록하는 공간입니다.</div>
       </div>
@@ -46,13 +35,13 @@ const SNBComponent = () => {
   }
 
   return (
-    <nav className="w-1/6 mx-6">
+    <nav className="w-1/5 mx-6">
       <ul>
         {navInfo.map((value: any, index: number) => (
           <li key={index}>
-            <div className="my-2 text-lg text-gray-500">{value.category}</div>
+            <div className="my-2 text-lg text-gray-600">{value.category}</div>
             {value.tags.map((tag: any) => (
-              <span key={tag} className="mx-3 text-sm text-gray-400">
+              <span key={tag} className="mx-3 text-sm text-gray-500">
                 {tag}
               </span>
             ))}
@@ -68,8 +57,8 @@ export default function Home({ posts }: any) {
     <>
       <Container>
         <HeaderComponent />
-        <div className="flex flex-row h-auto justify-between">
-          <main className="w-4/6">
+        <div className="flex flex-row h-auto justify-between p-6 border-t-2 border-gray-100">
+          <main className="w-4/5">
             {posts?.map((value: any, index: number) => (
               <Post key={index} postInfo={value} />
             ))}

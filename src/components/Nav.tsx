@@ -3,12 +3,12 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className={`mr-2 `}>
+    <nav className={`mr-10`}>
       {navlinks.map((nav) => (
         <Link
           href={nav.link}
           key={nav.title}
-          className={`ml-5 font-light text-lg text-gray-500`}
+          className={`ml-5 font-medium text-lg text-gray-600 hover:text-main_blod`}
         >
           {nav.title}
         </Link>

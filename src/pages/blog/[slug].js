@@ -9,11 +9,11 @@ const Post = ({ post }) => {
   return (
     <Container>
       <div className="mt-10">
-        <div className={`text-2xl font-bold text-gray-600`}>{post.title}</div>
+        <div className={`text-3xl font-bold text-main`}>{post.title}</div>
         <div className={`my-3 text-xs font-extralight`}>
           <div>{post.date}</div>
         </div>
-        <div className={`my-5 prose`}>
+        <div className={`border-b-2 border-gray-50 my-10 prose`}>
           <MDXComponent />
         </div>
       </div>
