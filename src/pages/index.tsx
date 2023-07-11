@@ -20,33 +20,33 @@ const HeaderComponent = () => {
   );
 };
 
-const SNBComponent = () => {
-  // const categories = new Set(allPosts.map((value: any) => value.category));
-  // let navInfo = [];
-  // for (let category of categories) {
-  //   const tags = Array.from(
-  //     new Set(
-  //       allPosts
-  //         .filter((value: any) => value.category === category)
-  //         .map((value: any) => value.tag)
-  //     )
-  //   );
-  //   navInfo.push({ category, tags });
-  // }
+const SNBComponent = ({ posts }: any) => {
+  const categories = new Set(posts.map((value: any) => value.category));
+  let navInfo = [];
+  for (let category of categories) {
+    const tags = Array.from(
+      new Set(
+        allPosts
+          .filter((value: any) => value.category === category)
+          .map((value: any) => value.tag)
+      )
+    );
+    navInfo.push({ category, tags });
+  }
 
   return (
     <nav className="w-1/5 mx-6">
       <ul>
-        {/*{navInfo.map((value: any, index: number) => (*/}
-        {/*  <li key={index}>*/}
-        {/*    <div className="my-2 text-lg text-gray-600">{value.category}</div>*/}
-        {/*    {value.tags.map((tag: any) => (*/}
-        {/*      <span key={tag} className="mx-3 text-sm text-gray-500">*/}
-        {/*        {tag}*/}
-        {/*      </span>*/}
-        {/*    ))}*/}
-        {/*  </li>*/}
-        {/*))}*/}
+        {navInfo.map((value: any, index: number) => (
+          <li key={index}>
+            <div className="my-2 text-lg text-gray-600">{value.category}</div>
+            {value.tags.map((tag: any) => (
+              <span key={tag} className="mx-3 text-sm text-gray-500">
+                {tag}
+              </span>
+            ))}
+          </li>
+        ))}
       </ul>
     </nav>
   );
@@ -70,7 +70,7 @@ export default function Home({ posts }: any) {
               ))}
             </div>
           </main>
-          <SNBComponent />
+          <SNBComponent posts={posts} />
         </div>
       </Container>
     </>
