@@ -26,7 +26,7 @@ const SNBComponent = ({ posts }: any) => {
   for (let category of categories) {
     const tags = Array.from(
       new Set(
-        allPosts
+          posts
           .filter((value: any) => value.category === category)
           .map((value: any) => value.tag)
       )
