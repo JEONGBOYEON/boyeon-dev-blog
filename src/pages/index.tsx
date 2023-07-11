@@ -3,6 +3,7 @@ import Image from "next/image";
 //@ts-ignore
 import { allPosts } from "contentlayer/generated";
 import Post from "@/components/Post";
+import {useEffect, useState} from "react";
 
 const HeaderComponent = () => {
   return (
@@ -20,13 +21,14 @@ const HeaderComponent = () => {
   );
 };
 
-const SNBComponent = ({ posts }: any) => {
-  const categories = new Set(posts.map((value: any) => value.category));
+const SNBComponent = (props:{posts:any, setCurrentTag:(tag:string)=>void}) => {
+
+  const categories = new Set(props.posts.map((value: any) => value.category));
   let navInfo = [];
   for (let category of categories) {
     const tags = Array.from(
       new Set(
-          posts
+          props.posts
           .filter((value: any) => value.category === category)
           .map((value: any) => value.tag)
       )
@@ -34,14 +36,16 @@ const SNBComponent = ({ posts }: any) => {
     navInfo.push({ category, tags });
   }
 
+
+
   return (
     <nav className="w-1/5 mx-6">
       <ul>
         {navInfo.map((value: any, index: number) => (
           <li key={index}>
-            <div className="my-2 text-lg text-gray-600">{value.category}</div>
+            <div className="my-2 text-lg text-gray-600" onClick={()=>{console.log(value.category)}}>{value.category}</div>
             {value.tags.map((tag: any) => (
-              <span key={tag} className="mx-3 text-sm text-gray-500">
+              <span key={tag} className="mx-3 text-sm text-gray-500 hover:text-main_blod" onClick={()=>{props.setCurrentTag(tag)}}>
                 {tag}
               </span>
             ))}
@@ -53,13 +57,25 @@ const SNBComponent = ({ posts }: any) => {
 };
 
 export default function Home({ posts }: any) {
+  const [currentTag, setCurrentTag] = useState<string | null>(null);
+
+  useEffect(()=>{
+    console.log(currentTag);
+  },[currentTag]);
+
   return (
     <>
       <Container>
         <HeaderComponent />
         <div className="flex flex-row h-auto justify-between p-6 border-t-2 border-gray-100">
           <main className="w-4/5">
-            {posts?.map((value: any, index: number) => (
+            {posts?.filter((value:any)=> {
+              if (currentTag !== null) {
+                return value.tag === currentTag;
+              }else{
+                return true;
+              }
+            }).map((value: any, index: number) => (
               <Post key={index} postInfo={value} />
             ))}
             <div className="flex flex-row m-16 space-x-8 justify-center font-extralight text-xl">
@@ -70,7 +86,7 @@ export default function Home({ posts }: any) {
               ))}
             </div>
           </main>
-          <SNBComponent posts={posts} />
+          <SNBComponent posts={posts} setCurrentTag={setCurrentTag}/>
         </div>
       </Container>
     </>
